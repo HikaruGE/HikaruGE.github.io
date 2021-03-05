@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>J&W LOVE Timer</title>
+</head>
+
+<style>
+    body {
+        background: url('img/j&w.png'), url("img/heartBKG.png"),pink;
+        background-repeat: no-repeat, repeat;
+        background-size: 60%, 10%;
+        background-attachment:fixed;
+        background-position: center bottom;
+    }
+
+    .timeBar{
+        height: 15%;
+        width: 100%;
+        position: fixed;
+        text-align: center;
+    }
+
+</style>
+
+<body>
+    <div class="timeBar">
+        <h2>居居和文文，我们已经在一起了</h2>
+        <div>
+            <b id="d"></b> Days <b id="h"></b> Hours <b id="m"></b> Minutes <b id="s"></b> Seconds
+        </div>
+    </div>
+
+</body>
+
+<script>
+    function timer() {
+        var start = new Date(2020, 8, 9); // 2015.7.2
+        var t = new Date() - start;
+        var h = ~~(t / 1000 / 60 / 60 % 24);
+        if (h < 10) {
+            h = "0" + h;
+        }
+        var m = ~~(t / 1000 / 60 % 60);
+        if (m < 10) {
+            m = "0" + m;
+        }
+
+        var s = ~~(t / 1000 % 60);
+        if (s < 10) {
+            s = "0" + s;
+        }
+        document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
+        document.getElementById('h').innerHTML = h;
+        document.getElementById('m').innerHTML = m;
+        document.getElementById('s').innerHTML = s;
+    }
+    timer();
+    setInterval(timer, 1000);
+</script>
+
+</html>
